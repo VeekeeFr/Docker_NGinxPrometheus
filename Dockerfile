@@ -1,6 +1,6 @@
 FROM nginx
 
-MAINTAINER Veekee <support@alt-three.com>
+MAINTAINER Veekee
 
 ENV GO_VERSION 1.8
 ENV INSTALL_BASE=/root
