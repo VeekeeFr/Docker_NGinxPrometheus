@@ -20,8 +20,9 @@ RUN cd ${INSTALL_BASE} && git clone https://github.com/discordianfish/nginx_expo
 RUN cd ${GOPATH} && ${GOROOT}/bin/go get "github.com/prometheus/client_golang/prometheus"
 RUN cd ${GOPATH} && ${GOROOT}/bin/go get "github.com/prometheus/log"
 RUN cd ${GOPATH} && ${GOROOT}/bin/go build
+RUN rm -rf ${GOROOT}
 RUN ${GOPATH}/nginx_exporter/nginx_exporter -nginx.scrape_uri=http://127.0.0.1/nginx_status &
 
 EXPOSE  9113
 
-CMD nginx -g daemon off;
+CMD nginx -g 'daemon off;'
